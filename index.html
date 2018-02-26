@@ -10,15 +10,17 @@
 
 <header class="page-header">
     <div class="page-header__wrapper">
-        <div class="search"><input type="search"></div>
-        <div class="basket"><a href="">dsf</a></div>
         <nav class="main-nav main-nav--nojs main-nav--closed">
             <button class="main-nav__toggle" type="button">
                 <span class="visually-hidden">Открыть меню</span>
                 <span class="toggle"></span>
             </button>
+            <div class="user-block--mobile">
+                <input type="search">
+                <div class="basket">wef</div>
+            </div>
             <ul class="main-nav__list site-list">
-                <li><a href=""><img src="img/logo.png" alt=""></a></li>
+                <li class="site-list__logo"><a href=""><img src="img/logo.png" alt=""></a></li>
                 <li class="site-list__item ">
                     <a href="#index">продукція</a>
                     <span></span>
@@ -45,12 +47,13 @@
                     <a href="#portfolio">контакти</a>
                     <span></span>
                 </li>
-                <li class="site-list__item">
+                <li class="site-list__item user-block">
+                    <div class="search"><input type="search" id="search"><label for="search"></label></div>
+                    <a href="" class="phone">+38 063 154 35 56</a>
                     <a href="#portfolio">Мій кабінет</a>
-                </li>
-                <li class="site-list__item">
                     <a href="#portfolio">UA</a>
                 </li>
+                <li class="site-list__item basket"><a href="">dsf</a></li>
             </ul>
         </nav>
     </div>

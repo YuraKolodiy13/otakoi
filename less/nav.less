@@ -39,11 +39,6 @@ body {
   position: absolute;
   right: 50px;
   width: 20px;
-
-}
-.basket{
-  position: absolute;
-  right: 20px;
 }
 
 .site-list{
@@ -53,14 +48,17 @@ body {
   margin: 0;
   padding:0;
 }
+.site-list li{
+  position: relative;
+}
 
 .site-list__item a{
   display:block;
   padding:12px 40px 12px 12px;
-  font-size:16px;
-  line-height:24px;
+  font-size:14px;
+  line-height:22px;
   text-decoration:none;
-  color:#000;
+  color:#3a2020;
   background-color:#fff;
   text-transform:uppercase;
 }
@@ -68,6 +66,19 @@ body {
 .site-list__item:hover a{
   background-color:#FFEA00;
   color:#000;
+}
+.main-nav--closed .site-list__item.basket{
+  position: absolute;
+  right: 15px;
+  top: -100px;
+  display: block;
+}
+.site-list__item.basket a{
+  background-color: transparent;
+  padding-right: 0;
+}
+.site-list__item > ul{
+  display: none;
 }
 
 .main-nav__toggle{
@@ -139,9 +150,15 @@ body {
 .main-nav__list span{
   position: absolute;
   right: 15px;
+  top: 15px;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
+}
+.main-nav__list span:hover{
+  background-color: black;
+  border-radius: 10px;
+  transition: .5s;
 }
 .main-nav__list span::before,
 .main-nav__list span::after{
@@ -151,7 +168,7 @@ body {
   background-color: red;
   position: absolute;
   right: 6px;
-  top: -25px;
+  top: 10px;
 }
 .main-nav__list span::before{
   transform: rotate(45deg);
@@ -178,7 +195,7 @@ body {
   background-color: transparent;
 }
 
-.main-nav--opened .main-nav__list img{
+.main-nav--opened .site-list__logo{
   position: absolute;
   top: -90px;
   left: 50%;
@@ -191,6 +208,21 @@ body {
 
 .main-nav--nojs .main-nav__list{
   display:block;
+}
+.user-block--mobile{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: flex;
+}
+.user-block .search,
+.user-block .phone,
+.site-list__item.basket{
+  display: none;
+}
+.user-block{
+  display: flex;
+  justify-content: space-between;
 }
 
 .page-header p{
@@ -206,11 +238,34 @@ body {
     margin:0 auto;
     flex-direction:row;
     flex-wrap:wrap;
+    position: relative;
   }
 
-  .page-header__logo,
-  .page-header__phone{
-    border-bottom: none;
+  .main-nav--closed .site-list__logo{
+    left: 0;
+    top: 40px;
+    position: absolute;
+  }
+
+  .site-list{
+    flex-direction: row;
+  }
+
+  .site-list .user-block{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+  }
+
+  .site-list__item a{
+    background-color: transparent;
+    padding:18px;
+    font-size: 12px;
+  }
+  .site-list__item span{
+    right: -2px;
+    top: 20px;
   }
 
   .main-nav__toggle{
@@ -221,17 +276,27 @@ body {
     display:flex;
     flex-direction: row;
     border:none;
+    margin-top: 10px;
   }
-  .site-list__item a{
-    padding:18px;
+  .main-nav--closed{
+    margin-left: auto;
+    padding-top: 40px;
   }
-  .page-header__phone{
-    width:100%;
-    text-align:right;
+  .search input{
+    position: absolute;
+    right: 50px;
+    width: 120px;
   }
-
-  .page-header__logo{
-    margin-right:auto;
+  .site-list__item.basket{
+    position: static;
+    width: 95px;
+    height: 35px;
+    background-color: #f6f6f6;
+    margin-top: 10px;
+    padding-top: 5px;
+  }
+  .site-list__item.basket a{
+    padding-top: 5px;
   }
   /*header style end*/
 }
