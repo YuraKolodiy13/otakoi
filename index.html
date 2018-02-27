@@ -16,25 +16,25 @@
                 <span class="toggle"></span>
             </button>
             <div class="user-block--mobile">
-                <input type="search">
-                <div class="basket">wef</div>
+                <input type="search" id="search--mobile"><label for="search--mobile"></label>
+                <div class="basket"><span>0</span><span>шт</span></div>
             </div>
             <ul class="main-nav__list site-list">
                 <li class="site-list__logo"><a href=""><img src="img/logo.png" alt=""></a></li>
                 <li class="site-list__item ">
-                    <a href="#index">продукція</a>
+                    <a>продукція</a>
                     <span></span>
                 </li>
                 <li  class="site-list__item">
-                    <a href="#contacts">готові рішення</a>
+                    <a href="#">готові рішення</a>
                     <span></span>
                 </li>
                 <li class="site-list__item">
-                    <a href="#portfolio">підтримка</a>
+                    <a href="#">підтримка</a>
                     <span></span>
                 </li>
                 <li class="site-list__item">
-                    <a href="#portfolio">система</a>
+                    <a href="#">система</a>
                     <span></span>
                     <ul>
                         <li><a href="">можливості</a></li>
@@ -44,20 +44,85 @@
                     </ul>
                 </li>
                 <li class="site-list__item">
-                    <a href="#portfolio">контакти</a>
+                    <a href="#">контакти</a>
                     <span></span>
                 </li>
                 <li class="site-list__item user-block">
                     <div class="search"><input type="search" id="search"><label for="search"></label></div>
                     <a href="" class="phone">+38 063 154 35 56</a>
-                    <a href="#portfolio">Мій кабінет</a>
-                    <a href="#portfolio">UA</a>
+                    <a href="#" class="myCabinet">Мій кабінет</a>
+                    <a href="#" class="language">UA</a>
                 </li>
-                <li class="site-list__item basket"><a href="">dsf</a></li>
+                <li class="site-list__item basket"><a href=""><b>0</b><b>шт</b></a></li>
             </ul>
         </nav>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam asperiores aspernatur at atque blanditiis corporis deleniti fugiat id iure, necessitatibus nobis quas quos repudiandae, sed sequi sunt ullam velit vero.</p>
+
+    <div class="slider">
+        <div class="slider-wrapper">
+            <div class="slider__item fade">
+                <div class="text">
+                    <h2>ajax StreetSiren</h2>
+                    <p>Працює на відстані до 2000 метрів від Ajax Hub на відкритому просторі або на декількох поверхах бізнес-центру</p>
+                    <div class="btn"><button>детальніше</button></div>
+                </div>
+                <div class="img"><img src="img/slide1.png" alt=""></div>
+            </div>
+
+            <div class="slider__item fade">
+                <div class="text">
+                    <h2>ajax StreetSiren</h2>
+                    <p>Працює на відстані до 2000 метрів від Ajax Hub на відкритому просторі або на декількох поверхах бізнес-центру</p>
+                    <div class="btn"><button>детальніше</button></div>
+                </div>
+                <div class="img"><img src="img/slide2.png" alt=""></div>
+            </div>
+
+            <div class="slider__item fade">
+                <div class="text">
+                    <h2>ajax StreetSiren</h2>
+                    <p>Працює на відстані до 2000 метрів від Ajax Hub на відкритому просторі або на декількох поверхах бізнес-центру</p>
+                    <div class="btn"><button>детальніше</button></div>
+                </div>
+                <div class="img"><img src="img/slide3.png" alt=""></div>
+            </div>
+
+            <div class="slider__item fade">
+                <div class="text">
+                    <h2>ajax StreetSiren</h2>
+                    <p>Працює на відстані до 2000 метрів від Ajax Hub на відкритому просторі або на декількох поверхах бізнес-центру</p>
+                    <div class="btn"><button>детальніше</button></div>
+                </div>
+                <div class="img"><img src="img/slide4.png" alt=""></div>
+            </div>
+            <div class="slider__item fade">
+                <div class="text">
+                    <h2>ajax StreetSiren</h2>
+                    <p>Працює на відстані до 2000 метрів від Ajax Hub на відкритому просторі або на декількох поверхах бізнес-центру</p>
+                    <div class="btn"><button>детальніше</button></div>
+                </div>
+                <div class="img"><img src="img/slide5.png" alt=""></div>
+            </div>
+            <div class="slider__item fade">
+                <div class="text">
+                    <h2>ajax StreetSiren</h2>
+                    <p>Працює на відстані до 2000 метрів від Ajax Hub на відкритому просторі або на декількох поверхах бізнес-центру</p>
+                    <div class="btn"><button>детальніше</button></div>
+                </div>
+                <div class="img"><img src="img/slide6.png" alt=""></div>
+            </div>
+        </div>
+
+
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+    </div>
 </header>
 
 <script src="main.js"></script>
