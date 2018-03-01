@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
 
-<header class="page-header">
+<header class="page-header" id="top">
     <div class="page-header__wrapper">
         <nav class="main-nav main-nav--nojs main-nav--closed">
             <button class="main-nav__toggle" type="button">
@@ -214,22 +215,48 @@
             <h2 class="lg">Форма реєстрації</h2>
         </div>
         <form action="" class="contact__form form">
-            <input type="text" placeholder="Ім'я">
-            <input type="email" placeholder="E-mail">
-            <input type="tel" placeholder="Телефон">
-            <div class="lg">
-                <input type="text" placeholder="Організація">
-                <select name="" id="d">
-                    <option value="">Вид діяльності</option>
-                </select>
-                <input type="date" placeholder="Дата">
+            <input type="text" placeholder="Ім'я" name="name" required>
+            <input type="email" placeholder="E-mail" name="email" required>
+            <input type="tel" pattern="^[ 0-9]+$" placeholder="Телефон" name="tel" required>
+            <input type="text" placeholder="Організація" class="lg" name="organization">
+            <div class="customSelect lg" tabindex="1">
+                <div class="title">Вид діяльності</div>
+                <ul>
+                    <!-- значение хранится в свойстве data-value -->
+                    <li data-value="construction">Будівництво</li>
+                    <li data-value="education">Освіта</li>
+                    <li data-value="finances">Фінансова діяльність</li>
+                    <li data-value="miningIndustry">Добувна промисловість</li>
+                    <li data-value="agriculture">Сільське господарство</li>
+                </ul>
             </div>
-            <textarea name="" id="sd" cols="30" rows="1" placeholder="Повідомлення"></textarea>
-            <button type="submit">надіслати</button>
+            <label for="datepicker">
+                <input class="calendar lg" id="datepicker" placeholder="Дата" name="date">
+                <span></span>
+            </label>
+            <textarea name="message" id="sd" cols="30" rows="1" placeholder="Повідомлення"></textarea>
+            <button type="submit" class="submit">надіслати</button>
         </form>
     </div>
 </main>
 
+<footer class="footer">
+    <a href="#top" class="toTop">dsf</a>
+    <div class="footer__copyright">
+        <p>© 2017 Barracuda. All rights reserved</p>
+    </div>
+    <div class="footer__created">
+        <p>Зроблено силами <span>Otakoyi</span></p>
+    </div>
+</footer>
+
 <script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $( function() {
+        $( "#datepicker" ).datepicker();
+    } );
+</script>
 </body>
 </html>

@@ -1,7 +1,13 @@
 .contact{
-  background: #f6f6f6 linear-gradient(130deg, #dcdcdc, #fbfbfb);
+  background: #f6f6f6 linear-gradient(-45deg, #dcdcdc, #fbfbfb);
   text-align: center;
   padding: 40px 15px;
+}
+.contact__title h2{
+  font-size: 30px;
+  line-height: 38px;
+  color: #202945;
+  margin-bottom: 50px;
 }
 
 .form{
@@ -9,14 +15,174 @@
   flex-direction: column;
 }
 .form input,
-.form select,
-.form textarea{
+.form textarea,
+.calendar{
   margin-bottom: 25px;
   border: 1px solid #b0bec1;
-  padding: 15px 20px;
+  background-color: #fff;
+  padding: 12px 20px;
   width: 100%;
   box-sizing: border-box;
 }
+.form input,
+.form textarea,
+.calendar,
+.customSelect{
+  font-size: 16px;
+  line-height: 22px;
+  color: #000;
+}
+.form textarea{
+  resize: vertical;
+}
+.form .submit{
+  background-color: #f6303e;
+  border: none;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+  padding: 15px 0;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
 .contact .lg{
   display: none;
+}
+
+::-webkit-input-placeholder {color:#717274; font-size: 16px;}
+::-moz-placeholder          {color:#717274; font-size: 16px}/* Firefox 19+ */
+:-moz-placeholder           {color:#717274; font-size: 16px}/* Firefox 18- */
+:-ms-input-placeholder      {color:#717274; font-size: 16px}
+
+textarea::-webkit-input-placeholder{  font-size: 17px;
+}
+input:focus,
+textarea:focus,
+.customSelect:focus{
+  border-color: green;
+  outline: none;
+}
+@media (min-width: 768px) {
+  .contact .lg{
+    display: block;
+  }
+  .form .submit{
+    width: 150px;
+    margin: 30px auto 0;
+  }
+  .contact .xs{
+    display: none;
+  }
+
+  .calendar{
+    padding: 6px 20px;
+    text-align: left;
+  }
+  //select
+  .customSelect {
+    color: #717274;
+    width: 100%;
+    background-color: #fff;
+    display: inline-block;
+    position: relative;
+    border: 1px solid #b0bec1;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+  }
+
+  .customSelect .title {
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: left;
+    padding: 12px 20px;
+  }
+  .customSelect .title::after{
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-bottom: 1px solid #a5a5a7;
+    border-left: 1px solid #a5a5a7;
+    position: absolute;
+    right: 20px;
+    top: 45%;
+    transition: .5s;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  .customSelect.open .title::after{
+    transform: rotate(135deg);
+    border-color: red;
+  }
+
+  .customSelect li {
+    cursor: pointer;
+    text-align: left;
+    padding: 7px 0 7px 20px;
+  }
+
+  .customSelect li:nth-child(even) {
+    background-color: #f0f8ff;
+  }
+
+  .customSelect li:hover {
+    background-color: #7fffd4;
+  }
+
+  .customSelect ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 1000;
+    background: white;
+    border-bottom: 1px solid #add8e6;
+    border-left: 1px solid #add8e6;
+    border-right: 1px solid #add8e6;
+    box-sizing: border-box;
+    transition: 1s;
+  }
+
+  .customSelect.open ul {
+    display: block;
+  }
+  .form label[for='datepicker']{
+    position: relative;
+    width: 100%;
+  }
+  .form .calendar{
+    width: 100%;
+  }
+  .calendar + span::after{
+    content: '';
+    position: absolute;
+    background: url(../img/sprite.png) no-repeat -8px -56px;
+    right: 13px;
+    top: 44%;
+    transform: translateY(-50%);
+    width: 23px;
+    height: 34px;
+    z-index: 100;
+    cursor: pointer;
+  }
+}
+@media (min-width: 950px){
+  .contact{
+    width: 950px;
+    margin: auto;
+    padding: 50px 110px;
+    box-sizing: border-box;
+  }
+  .form{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .form input,
+  .customSelect,
+  .calendar,
+  .form label[for='datepicker']{
+    width: 48%;
+  }
 }
