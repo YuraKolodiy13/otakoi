@@ -8,6 +8,7 @@
   line-height: 38px;
   color: #202945;
   margin-bottom: 50px;
+  font-family: DINPro-bold, Arial, sans-serif;
 }
 
 .form{
@@ -28,6 +29,7 @@
 .form textarea,
 .calendar,
 .customSelect{
+  font-family: 'Segoe UI semilight', Arial, sans-serif;
   font-size: 16px;
   line-height: 22px;
   color: #000;
@@ -36,14 +38,23 @@
   resize: vertical;
 }
 .form .submit{
+  font-family: 'Segoe UI semilight', Arial, sans-serif;
   background-color: #f6303e;
-  border: none;
   font-size: 14px;
   line-height: 18px;
   color: #ffffff;
   padding: 15px 0;
   text-transform: uppercase;
   margin-top: 10px;
+  cursor: pointer;
+  border: 1px solid #f6303e;
+  box-sizing: border-box;
+  transition: .5s;
+}
+.form .submit:hover{
+  background-color: #fff;
+  color: #f6303e;
+  transition: .5s;
 }
 .contact .lg{
   display: none;

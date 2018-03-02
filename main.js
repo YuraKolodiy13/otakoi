@@ -13,7 +13,6 @@ navToggle.addEventListener('click', function() {
     }
 });
 
-// let spans = document.querySelectorAll('.site-list__item span');
 document.body.addEventListener('click', function (e) {
     if(e.target.tagName == 'SPAN' ){
         if(e.target.nextElementSibling){
@@ -22,7 +21,9 @@ document.body.addEventListener('click', function (e) {
     }
 });
 
-var slideIndex = 1;
+
+//slider
+let slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
@@ -34,9 +35,9 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName('slider__item');
-    var dots = document.getElementsByClassName('dot');
+    let i;
+    const slides = document.querySelectorAll('.slider__item');
+    const dots = document.querySelectorAll('.dot');
 
     if(n > slides.length){
         slideIndex = 1;
@@ -53,34 +54,43 @@ function showSlides(n) {
     dots[slideIndex - 1].className += ' active';
 }
 
-// const slider = document.querySelector('.slider');
-//
-// function mouseOv(e) {
-//     if(e.target.classList.contains('slider')){
-//         window.addEventListener('scroll', function (e) {
-//             plusSlides(1);
-//             return;
-//         });
-//     }
-// }
-//
-// window.addEventListener('mouseover', mouseOv);
+const slider = document.querySelector('.slider');
 
-let productsDescript = document.querySelectorAll('.item__description p');
-
-for(let i = 0; i < productsDescript.length; i++){
-    let some = [];
-    some[i] = productsDescript[i].innerHTML.split('');
-    some[i].length = 98;
-    productsDescript[i].innerHTML = some[i].join('');
+function addOnWheel(elem, handler) {
+    if (elem.addEventListener) {
+        if ('onwheel' in document) {
+            // IE9+, FF17+
+            elem.addEventListener("wheel", handler);
+        } else if ('onmousewheel' in document) {
+            // устаревший вариант события
+            elem.addEventListener("mousewheel", handler);
+        } else {
+            elem.addEventListener("MozMousePixelScroll", handler);
+        }
+    } else { // IE8-
+        elem.attachEvent("onmousewheel", handler);
+    }
 }
 
+let scale = 1;
+
+addOnWheel(slider, function(e) {
+    let delta = e.deltaY || e.detail || e.wheelDelta;
+    if (delta > 0){
+        plusSlides(1);
+    }else {
+        plusSlides(-1);
+    }
+    e.preventDefault();
+});
+
+
+//range
 const range = document.querySelector('input[type="range"]');
 const productsItems = document.querySelector('.products__items');
 
 range.addEventListener('input', function () {
     productsItems.style.marginLeft = -this.value + 'px';
-    console.log(this.value);
 });
 
 if(document.documentElement.clientWidth > 400){
@@ -150,7 +160,7 @@ function CustomSelect(options) {
     }
 }
 
-const animalSelect = new CustomSelect({
+const select = new CustomSelect({
     elem: document.querySelector('.customSelect')
 });
 
@@ -190,38 +200,3 @@ window.addEventListener('scroll', function() {
         document.querySelector('a[href="#' + nav[i].id + '"]').className=((1 >= nav[i].getBoundingClientRect().top && nav[i].getBoundingClientRect().top >= 1-nav[i].offsetHeight) ? 'red' : '');
     }
 }, false);
-
-window.addEventListener('scroll', function () {
-    if(pageYOffset > 0){
-        nav.style.boxShadow = '0 1px 5px 0 #ccc';
-    }else {
-        nav.style.boxShadow = '';
-    }
-});
-
-
-//slider again
-const $slider = $(".slider");
-$slider
-    .on('init', () => {
-        mouseWheel($slider)
-    })
-    .slick({
-        dots: true,
-        vertical: true,
-        infinite: false,
-    })
-function mouseWheel($slider) {
-    $(window).on('wheel', { $slider: $slider }, mouseWheelHandler)
-}
-function mouseWheelHandler(event) {
-    event.preventDefault()
-    const $slider = event.data.$slider
-    const delta = event.originalEvent.deltaY
-    if(delta > 0) {
-        $slider.slick('slickPrev')
-    }
-    else {
-        $slider.slick('slickNext')
-    }
-}
