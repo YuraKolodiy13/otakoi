@@ -59,15 +59,13 @@ const slider = document.querySelector('.slider');
 function addOnWheel(elem, handler) {
     if (elem.addEventListener) {
         if ('onwheel' in document) {
-            // IE9+, FF17+
             elem.addEventListener("wheel", handler);
         } else if ('onmousewheel' in document) {
-            // устаревший вариант события
             elem.addEventListener("mousewheel", handler);
         } else {
             elem.addEventListener("MozMousePixelScroll", handler);
         }
-    } else { // IE8-
+    } else {
         elem.attachEvent("onmousewheel", handler);
     }
 }
@@ -168,16 +166,16 @@ document.addEventListener('select', function(e) {
     document.getElementById('result').innerHTML = e.detail.value;
 });
 
-//плавна прокрутка
+//slow scroll
 const linkNav = document.querySelectorAll('[href^="#top"]');
-let V = 1;  // швидкість
+let V = .5;  // speed
 
 for (let i = 0; i < linkNav.length; i++) {
     linkNav[i].addEventListener('click', function(e) {
         e.preventDefault();
-        let w = window.pageYOffset;  // прокрутка
-        let hash = this.href.replace(/[^#]*(.*)/, '$1');  // id элемента, до якого треба перейти
-        let t = document.querySelector(hash).getBoundingClientRect().top; //відступ від вікна браузера до id
+        let w = window.pageYOffset;
+        let hash = this.href.replace(/[^#]*(.*)/, '$1');
+        let t = document.querySelector(hash).getBoundingClientRect().top;
         let start = null;
 
         requestAnimationFrame(step);
@@ -189,7 +187,7 @@ for (let i = 0; i < linkNav.length; i++) {
             if (r != w + t) {
                 requestAnimationFrame(step)
             } else {
-                location.hash = hash;  // URL с хэшем
+                location.hash = hash;
             }
         }
     }, false);
@@ -197,6 +195,12 @@ for (let i = 0; i < linkNav.length; i++) {
 window.addEventListener('scroll', function() {
     const nav = document.querySelectorAll('section[id^="top"]');
     for (let i = 0; i < nav.length; i++) {
-        document.querySelector('a[href="#' + nav[i].id + '"]').className=((1 >= nav[i].getBoundingClientRect().top && nav[i].getBoundingClientRect().top >= 1-nav[i].offsetHeight) ? 'red' : '');
+        document
+            .querySelector('a[href="#' + nav[i].id + '"]')
+            .className=((1 >= nav[i].getBoundingClientRect().top &&
+        nav[i]
+            .getBoundingClientRect()
+            .top >= 1-nav[i].offsetHeight) ? 'red' : ''
+        );
     }
 }, false);
